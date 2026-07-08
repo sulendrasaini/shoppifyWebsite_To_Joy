@@ -19,8 +19,8 @@ const products = [
     image: Baby_shirt,
     price: 20,
     oldPrice: 25,
-    onSale: true,
-    newArrival: false,
+    onSale: false,
+    newArrival: true,
     category: "Kids"
   },
   {
@@ -40,7 +40,7 @@ const products = [
     price: 60,
     oldPrice: 70,
     onSale: true,
-    newArrival: true,
+    newArrival: false,
     category: "Men"
   },
   {
@@ -70,7 +70,7 @@ const products = [
     price: 50,
     oldPrice: 60,
     onSale: false,
-    newArrival: true,
+    newArrival: false,
     category: "Women"
   },
   {
@@ -79,7 +79,7 @@ const products = [
     image: shirt,
     price: 35,
     oldPrice: 40,
-    onSale: true,
+    onSale: false,
     newArrival: false,
     category: "Men"
   },
@@ -90,8 +90,8 @@ const products = [
     price: 70,
     oldPrice: 80,
     onSale: true,
-    newArrival: true,
-    category: "Men"
+    newArrival: false,
+    category: "Women"
   },
   {
     id: 9,
@@ -109,7 +109,7 @@ const products = [
     image:sleepsuit,
     price: 30,
     oldPrice: 35,
-    onSale: true,
+    onSale: false,
     newArrival: false,
     category: "Kids"
   },
@@ -119,9 +119,9 @@ const products = [
     image: sweater,
     price: 45,
     oldPrice: 55,
-    onSale: true,
+    onSale: false,
     newArrival: true,
-    category: "Men"
+    category: "Kids"
   },
   {
     id: 12,

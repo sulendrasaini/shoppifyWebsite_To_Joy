@@ -1,40 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa6";
 import { IoBagHandleSharp } from "react-icons/io5";
 
-const Navbar = () => {
+const Navbar = ({handleScroll, setSearchItem, searchItem,handlePannel,activePannel, totalItemInBuyIcon , wishListIcon_No}) => {
+
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect (()=>{
+
+    const handleScrolled = ()=>{
+            // console.log(window.scrollY)
+             setIsScrolled(window.scrollY > 20)
+            
+     }
+
+     window.addEventListener("scroll", handleScrolled, {passive:true})
+  },[]);
+
+
   return (
-    <header className='fixed top-0 left-0 right-0 z-999 w-full'>
+    <header className={`sticky top-0 z-30 w-full `}>
       <nav
-        className="
-        max-w-[1300px]
+        className={`
+        max-w-[1150px]
         mx-auto
         mt-4
         px-10
-        py-4
+        
         rounded-full
+        h-[14vh]
 
         bg-white/60
-        backdrop-blur-xl
+        backdrop-blur-3xl
         border
         border-white/30
 
-        shadow-[0_20px_60px_rgba(0,0,0,0.3)]
-
+        shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+        
+        
+        
         flex
         justify-between
         items-center
-
+      ${isScrolled ? "scale-[0.80] py-2 " : "scale-100 py-4"}
+        
         transition-all
         duration-300
-        "
+        ease-out
+        `}
       >
 
         {/* NAV-LOGO */}
         <div className='text-3xl font-bold p-5 '>
           <span>Sh</span>
-          <span className='bg-gradient-to-b to-green-800 from-green-300 text-transparent bg-clip-text'>O</span>
+          <span className='bg-linear-to-b to-green-800 from-green-300 text-transparent bg-clip-text'>O</span>
           <span>pcy</span>
         </div>
         {/* NAV-MANU */}
@@ -80,27 +100,35 @@ const Navbar = () => {
         </ul>
         {/*NAV-SEARCHING  */}
         <div className='flex gap-6 justify-between items-center '>
-          <div className='shadow-sm  hover:shadow-lg px-5 border border-gray-300 hover:border-green-300  transition-all duration-300" rounded-full h-[60px]  flex justify-center items-center '>
+          <div className='shadow-sm  hover:shadow-lg px-5 border border-gray-300 hover:border-green-600  transition-all duration-300 ease-in-out" rounded-full h-[60px]  flex justify-center items-center '>
 
             <div className='flex'>
               <div className='text-3xl cursor-pointer text-gray-600 hover:text-green-700 transition-all duration-300  text-center'>
                 <IoSearchSharp />
               </div>
-              <input type='search' placeholder='Searching Product ...' autoComplete='off' className='focus:outline-none px-4 pr-10' />
+              <input onChange={(e)=>setSearchItem(e.target.value)} value={searchItem} type='search' placeholder='Searching Product ...' autoComplete='off' className='focus:outline-none px-4 pr-10' onFocus={handleScroll} />
             </div>
 
           </div>
 
-          <button className='text-[1.7rem] text-zinc-700 hover:text-red-600 relative '>
+          <button onClick={()=> handlePannel("wishlist")} className={`${activePannel === "wishlist" ? "text-red-600" : "text-zinc-700"} text-[2.0rem] cursor-pointer hover:scale-120 duration-300 relative `}>
             <FaHeart />
-            <span className='text-[14px] text-white bg-red-500 w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold absolute bottom-[-5px] right-[16px] border-2'>2</span>
+            {
+              wishListIcon_No > 0 && <span className='text-[14px] text-white bg-red-500 w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold absolute bottom-[-5px] right-[16px] border-2'>{wishListIcon_No}</span>
+            }
+            
           </button>
 
-          <button className='text-[1.7rem] text-zinc-700 hover:text-green-700 relative'>
+          <button onClick={()=>  handlePannel("card")}className={`${activePannel === "card" ? "text-green-600" : "text-zinc-700"} text-[2.0rem] cursor-pointer hover:scale-130 duration-300 relative`}>
             <IoBagHandleSharp />
-            <span className='text-[14px] text-white bg-green-500 w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold absolute bottom-[-5px] right-[16px] border-2'>5</span>
-          </button>
-
+            
+              {/* <span className={`text-[14px] text-white  w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold absolute bottom-[-5px] right-[16px] border-2 ${totalItemInBagIcon === 0 ? " " : "bg-green-500"}`}>{totalItemInBagIcon === 0 ? "" : totalItemInBagIcon}</span> */}
+              {
+                totalItemInBuyIcon > 0 && <span className='text-[14px] text-white bg-green-500 w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold absolute bottom-[-5px] right-[16px] border-2 p-1'>{totalItemInBuyIcon}</span>
+              }
+                
+              </button>
+            
 
         </div>
 
