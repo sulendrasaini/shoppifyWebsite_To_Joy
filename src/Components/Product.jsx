@@ -69,7 +69,7 @@ const Product = ({searchItem, setSearchItem, handleScroll, addToCard, wishListCl
     })
 
     return (
-        <section id='product-section' className='max-w-[1300px] px-10 m-auto py-15'>
+        <section id='product-section' className='max-w-[1100px] px-10 m-auto py-15'>
 
             {/* Tabs */}
             <div className='flex gap-5 justify-center '>

@@ -15,8 +15,8 @@ const closeOrderSummaryDailog = ()=>{
        openOrderPlacePanel()
 };
     return (
-        <section className='bg-black/80 fixed inset-0 z-40 flex justify-center items-center'>
-            <div className='bg-zinc-100 p-8 w-[600px] rounded-lg border-2 border-zinc-400'>
+        <section onClick={()=>closeOrderSummary()} className={`bg-black/80 fixed inset-0 z-40 flex justify-center items-center`} >
+            <div onClick={(e)=>e.stopPropagation()} className='bg-zinc-100 p-8 w-[600px] rounded-lg border-2 border-zinc-400'>
                 <h2 className='text-4xl text-zinc-800  font-bold mb-5 text-center'>Order Summary</h2>
 
                 <div className='flex justify-center flex-col items-cen pt-10 '>

@@ -12,6 +12,7 @@ import OrderPlace from './orderPlace/OrderPlace'
 const Home = () => {
 
   
+
   //{SEARCH to the item by typing LATTER}
   const [searchItem, setSearchItem] = useState("");
   //{For WishList & BuyCart panel close and open }
@@ -101,9 +102,9 @@ const Home = () => {
   //=====>{CALCULATION in BUY_CART of payment}
   const subTotal = card.reduce((acc, item) => acc + item.price * item.quantity, 0)
   const totalItemInBuyIcon = card.reduce((acc, item) => acc + item.quantity, 0)
-  const wishListIcon_No = wishListItems.reduce((acc, item) => acc + item.quantity, 0)
   const shippingFee = totalItemInBuyIcon * 2;
   const grandTotal = shippingFee + subTotal;
+  const wishListIcon_No = wishListItems.reduce((acc, item) => acc + item.quantity, 0) 
 
 
 
@@ -156,7 +157,6 @@ const Home = () => {
       wishListIcon_No={wishListIcon_No}
       />
       <Banner />
-
       <Product 
       searchItem={searchItem} 
       setSearchItem={setSearchItem} 
@@ -202,7 +202,11 @@ const Home = () => {
       {orderplaced && 
       <OrderPlace openOrderPlacePanel={() => setOrderPlaced(!orderplaced)} 
       />}
-    </div>
+   
+  
+   </div>
+
+
   )
 }
 

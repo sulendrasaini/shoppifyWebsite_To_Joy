@@ -52,7 +52,7 @@ const Banner = () => {
      const{hours, minutes, seconds} = formatTime(timeLeft);
 
     return (
-        <section className='max-w-[1200px] px-10 m-auto mt-[5vh]'>
+        <section className='max-w-[1100px] px-10 m-auto mt-[5vh]'>
             <div className='relative h-[60vh]'>
                 <img src={BannerImage} alt="image" className='w-full h-full object-cover object-top   ' />
             </div>

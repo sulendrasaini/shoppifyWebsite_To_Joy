@@ -13,7 +13,8 @@ const WishList = ({ activePannel, closePannel, wishListItems, addToCard, deleteW
 };
     return (
 
-        <div className={`bg-zinc-100 fixed top-0 right-0 bottom-0 left-auto z-40 w-[350px]  border-2 border-green-200 transform ${activePannel === "wishlist" ? "translate-x-0" : "translate-x-full"} duration-500`}>
+        <section onClick={()=>closePannel()} className={`bg-black/50 fixed inset-0 transform-opacity ${activePannel === "wishlist" ? "opacity-100 visible" : "opacity-0 invisible"} `}>
+        <div onClick={(e)=>e.stopPropagation()} className={`bg-zinc-100 fixed top-0 right-0 bottom-0 left-auto z-40 w-[350px]  border-2 border-green-200 transform ${activePannel === "wishlist" ? "translate-x-0" : "translate-x-full"} duration-500`}>
 
             {/* {HEADING} */}
             <h2 className='text-3xl font-bold text-zinc-800 text-center py-10 px-5 flex justify-center gap-4 items-center'>Your Wish Lists <div><FaAngellist /></div></h2>
@@ -62,6 +63,7 @@ const WishList = ({ activePannel, closePannel, wishListItems, addToCard, deleteW
 
 
         </div>
+        </section>
     )
 }
 

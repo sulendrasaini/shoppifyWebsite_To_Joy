@@ -41,7 +41,7 @@ const Cards = ({ image, name, price, id, onSale, newArrival, oldPrice, product, 
 
                 {/* IMAGE */}
                 <div className='text-center'>
-                    <img src={image} alt="image" className='h-[30vh] w-full object-cover' />
+                    <img src={image} alt="image" className='h-[20vh] w-full object-cover' />
                     {/* CONTENT_PART */}
                     <h3 className=' pt-3 text-xl font-bold tracking-tight'>
                         {name}

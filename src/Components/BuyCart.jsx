@@ -10,8 +10,11 @@ const BuyCart = ({ activePannel, closePannel, card ,removeItem , quantityIncream
 
   
     return (
+        
+        // <section onClick={()=>closePannel()} className='fixed inset-0 bg-black/50 transition-opacity duration-300'>
+        <section onClick={() => closePannel()} className={`fixed inset-0 bg-black/50 transition-opacity duration-300 ${activePannel === "card" ? "opacity-100 visible": "opacity-0 invisible"}`}>
 
-        <div className={`bg-zinc-300 fixed top-0 right-0 bottom-0 left-auto z-40 w-[350px] border-2 border-green-200 transform ${activePannel === "card" ? "translate-x-0" : "translate-x-full"} duration-500`}>
+        <div onClick={(e)=>e.stopPropagation()} className={`bg-zinc-300 fixed top-0 right-0 bottom-0 left-auto z-40 w-[350px] border-2 border-green-200 transform ${activePannel === "card" ? "translate-x-0" : "translate-x-full"} duration-500`}>
 
             {/* {HEADING} */}
             <h2 className='text-3xl font-bold text-zinc-800 text-center py-5 flex items-center justify-center gap-5'> Your Cart <div className='text-3xl'> <MdShoppingCart /></div></h2>
@@ -94,6 +97,7 @@ const BuyCart = ({ activePannel, closePannel, card ,removeItem , quantityIncream
 
 
         </div>
+        </section>
     )
 }
 
